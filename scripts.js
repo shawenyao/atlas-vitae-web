@@ -1,3 +1,3 @@
 document.addEventListener("WeixinJSBridgeReady", function () {
-    document.getElementById('video').play();
+    document.getElementById('video2').play();
 }, false);
