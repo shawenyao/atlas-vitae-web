@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #1f2937;
-    background-color: rgb(255, 215, 0, 0.4);
+    background-color: rgb(255, 215, 0, 0.5);
     line-height: 1.6;
 }
 
@@ -104,7 +104,7 @@ header p {
 }
 
 section {
-    padding: 40px 20px 10px 20px;
+    padding: 25px 20px 5px 20px;
     max-width: 1150px;
     margin: 0 auto;
     text-align: center;
@@ -113,7 +113,7 @@ section {
 section h2 {
     text-align: center;
     font-size: 2.6rem;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     font-weight: 500;
     /* background-color: rgba(255, 215, 0, 0.5); */
     border-radius: 20px;
@@ -124,10 +124,10 @@ section h2 {
 
 section p {
     max-width: 760px;
-    margin: 0 auto 15px;
+    margin: 0 auto 20px;
     text-align: center;
     color: #4b5563;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     padding: 10px
 }
 
