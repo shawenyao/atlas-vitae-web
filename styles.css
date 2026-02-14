@@ -42,6 +42,26 @@ header::before {
     z-index: 1;
 }
 
+.logo {
+    width: 20%;
+    top: 0px;
+    height: auto;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo2 {
+    width: 50%;
+    top: 0px;
+    height: auto;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
