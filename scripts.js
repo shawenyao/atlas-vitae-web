@@ -85,7 +85,7 @@ function handleEnd(e, endX, endY) {
   if (Math.abs(diffX) > thresholdX) {
     diffX > 0 ? goPrev() : goNext();
   } else if (Math.abs(diffY) > thresholdY){
-    diffY < 0 ? goPrev() : goNext();
+    diffY > 0 ? goPrev() : goNext();
   } else {
     // CLICK LOGIC:
     // Left half of screen -> Previous
