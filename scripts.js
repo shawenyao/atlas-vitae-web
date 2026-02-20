@@ -43,7 +43,7 @@ function updateState() {
           if (!page.classList.contains('flipped')) {
             page.style.zIndex = pages.length - index;
           }
-        }, 150); // Delay roughly 1/4 of your --flip-speed (0.6s)
+        }, 200); // Delay roughly 1/4 of your --flip-speed (0.6s)
       } else {
         page.style.zIndex = pages.length - index;
       }
