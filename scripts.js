@@ -31,6 +31,12 @@ function updateState() {
     book.classList.remove('back-cover');
   }
   pages.forEach((page, index) => {
+    if (index <= currentIdx + 1) {
+      page.style.visibility = 'visible';
+    } else {
+      page.style.visibility = 'hidden';
+    }
+
     if (index < currentIdx) {
       // Page is flipped to the LEFT
       page.classList.add('flipped');
@@ -50,6 +56,7 @@ function updateState() {
       const offset = (index - currentIdx) * 3;
       page.style.transform = `rotateY(0deg) translateX(${offset}px)`;
     }
+
   });
 
 }
