@@ -22,6 +22,14 @@ const pages = document.querySelectorAll('.page');
 let currentIdx = 0;
 
 function updateState() {
+  if (currentIdx == 0) {
+    book.classList.add('front-cover');
+  } else if (currentIdx == pages.length) {
+    book.classList.add('back-cover');
+  } else {
+    book.classList.remove('front-cover');
+    book.classList.remove('back-cover');
+  }
   pages.forEach((page, index) => {
     if (index < currentIdx) {
       // Page is flipped to the LEFT
@@ -51,15 +59,7 @@ function updateState() {
       page.style.transform = `rotateY(0deg) translateX(${offset}px)`;
     }
   });
-  if (currentIdx == 0) {
-    book.classList.add('front-cover');
-  } else if (currentIdx == pages.length) {
-    book.classList.add('back-cover');
-  } else if(book.classList.contains('front-cover')) {
-    book.classList.remove('front-cover');
-  } else if(book.classList.contains('back-cover')) {
-    book.classList.remove('back-cover');
-  }
+
 }
 
 function goNext() { if (currentIdx < pages.length) { currentIdx++; updateState(); } }
