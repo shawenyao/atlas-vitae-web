@@ -97,3 +97,17 @@ viewport.addEventListener('touchstart', e => handleStart(e, e.touches[0].clientX
 viewport.addEventListener('touchend', e => handleEnd(e, e.changedTouches[0].clientX), { passive: false });
 viewport.addEventListener('mousedown', e => handleStart(e, e.clientX));
 viewport.addEventListener('mouseup', e => handleEnd(e, e.clientX));
+
+
+// 2. Define what happens when it reaches the viewport
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      goNext();
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 1 });
+
+// 3. Start observing
+observer.observe(viewport);
