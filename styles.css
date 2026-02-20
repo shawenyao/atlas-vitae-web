@@ -263,13 +263,13 @@ footer a {
     }
 
     .book {
-        transform: translateX(50px);
+        transform: translateX(25px);
     }
     .book.book.front-cover {
-        transform: translateX(50px);
+        transform: translateX(25px);
     }
     .book.back-cover {
-        transform: translateX(90%);
+        transform: translateX(95%);
     }
 }
 
