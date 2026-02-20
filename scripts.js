@@ -35,19 +35,14 @@ function updateState() {
       // Page is flipped to the LEFT
       page.classList.add('flipped');
       // Immediate high z-index for flipped pages to stay on top
-      page.style.zIndex = 100 + index;
+      page.style.zIndex = 10 + index;
       page.style.transform = `rotateY(-180deg) translateX(-1px)`;
     } else {
       // Page is unflipped on the RIGHT
       page.classList.remove('flipped');
 
-    // This prevents the "underneath" images from popping in too early
-      setTimeout(() => {
-        if (!page.classList.contains('flipped')) {
-          page.style.zIndex = pages.length - index;
-        }
-      }, 100);
-      
+      page.style.zIndex = pages.length - index;
+
       // Stacked offset on the right
       const offset = (index - currentIdx) * 3;
       page.style.transform = `rotateY(0deg) translateX(${offset}px)`;
