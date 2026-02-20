@@ -384,7 +384,6 @@ footer a {
     transform-style: preserve-3d;
     transition: transform var(--flip-speed) ease-in-out;
     pointer-events: none;
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     background-color: white;
 }
@@ -395,8 +394,7 @@ footer a {
     backface-visibility: hidden;
     background: white;
     border: 1px solid #aaa;
-    overflow: hidden; 
-    -webkit-backface-visibility: hidden;
+    overflow: hidden;
 }
 
 .front img{
