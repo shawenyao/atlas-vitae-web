@@ -32,6 +32,9 @@ function updateState() {
         } else {
             // Page is unflipped on the RIGHT
             page.classList.remove('flipped');
+
+            // Stacked offset on the right
+            const offset = (index - currentIdx) * 3;
             
             // FIX: Delay the z-index reset when going backward
             // This prevents the "underneath" images from popping in too early
@@ -45,7 +48,7 @@ function updateState() {
                 page.style.zIndex = pages.length - index;
             }
             
-            page.style.transform = `rotateY(0deg) translateX(0px)`;
+            page.style.transform = `rotateY(0deg) translateX(${offset}px)`;
         }
     });
     currentIdx > 0 ? book.classList.add('opened') : book.classList.remove('opened');
