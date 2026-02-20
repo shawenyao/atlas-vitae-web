@@ -41,7 +41,10 @@ function updateState() {
       // Page is unflipped on the RIGHT
       page.classList.remove('flipped');
 
-      page.style.zIndex = pages.length - index;
+      // This prevents the "underneath" images from popping in too early
+      setTimeout(() => {
+        page.style.zIndex = pages.length - index;
+      }, 100);
 
       // Stacked offset on the right
       const offset = (index - currentIdx) * 3;

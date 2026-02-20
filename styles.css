@@ -391,10 +391,6 @@ footer a {
     backface-visibility: hidden;
 }
 
-.book, .page {
-  will-change: transform;
-}
-
 .front, .back {
     position: absolute;
     width: 100%; height: 100%;
