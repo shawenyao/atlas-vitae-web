@@ -238,7 +238,10 @@ footer a {
     .image-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    .book { transform: translateX(50%); }
+    .book {
+         transform: translateX(50%) translateZ(0);
+         -webkit-transform: translateX(50%) translateZ(0);
+    }
     .book.front-cover { transform: translateX(0px); }
     .book.back-cover { transform: translateX(100%); }
 }
@@ -256,7 +259,11 @@ footer a {
         grid-template-columns: 1fr;
     }
 
-    .book {transform: translateX(50px);}
+    .book {
+        transform: translateX(50px) translateZ(0);
+        -webkit-transform: translateX(50px) translateZ(0);
+    }
+    .book.book.front-cover {transform: translateX(50px);}
     .book.back-cover { transform: translateX(85%); }
 }
 
@@ -373,6 +380,10 @@ footer a {
     pointer-events: none;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+}
+
+.book, .page {
+  will-change: transform;
 }
 
 .front, .back {
