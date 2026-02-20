@@ -386,6 +386,7 @@ footer a {
     pointer-events: none;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    background-color: white;
 }
 
 .front, .back {
