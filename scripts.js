@@ -68,21 +68,23 @@ updateState();
 
 
 let startX = 0;
+let startY = 0;
 const threshold = 30; // Reduced threshold for more sensitivity
 
-function handleStart(e, x) {
+function handleStart(e, x, y) {
   // Prevent mouse emulation on touch devices to stop "double clicks"
   if (e.type === 'touchstart') e.preventDefault();
   startX = x;
+  startY = y;
 }
 
-function handleEnd(e, endX) {
-  const diff = endX - startX;
-  if (Math.abs(diff) > threshold) {
-    // NATURAL BOOK LOGIC:
-    // Pulling Right (diff > 0) -> Previous Page
-    // Pulling Left (diff < 0) -> Next Page
-    diff > 0 ? goPrev() : goNext();
+function handleEnd(e, endX, endY) {
+  const diffX = endX - startX;
+  const diffY = endY - startY;
+  if (Math.abs(diffX) > threshold) {
+    diffX > 0 ? goPrev() : goNext();
+  } else if (Math.abs(diffY) > threshold){
+    diffY > 0 ? goPrev() : goNext();
   } else {
     // CLICK LOGIC:
     // Left half of screen -> Previous
@@ -93,10 +95,10 @@ function handleEnd(e, endX) {
 
 const viewport = document.querySelector('.viewport');
 // Event Listeners
-viewport.addEventListener('touchstart', e => handleStart(e, e.touches[0].clientX), { passive: false });
-viewport.addEventListener('touchend', e => handleEnd(e, e.changedTouches[0].clientX), { passive: false });
-viewport.addEventListener('mousedown', e => handleStart(e, e.clientX));
-viewport.addEventListener('mouseup', e => handleEnd(e, e.clientX));
+viewport.addEventListener('touchstart', e => handleStart(e, e.touches[0].clientX, e.touches[0].clientY), { passive: false });
+viewport.addEventListener('touchend', e => handleEnd(e, e.changedTouches[0].clientX, e.changedTouches[0].clientY), { passive: false });
+viewport.addEventListener('mousedown', e => handleStart(e, e.clientX, e.clientY));
+viewport.addEventListener('mouseup', e => handleEnd(e, e.clientX, e.clientY));
 
 
 // 2. Define what happens when it reaches the viewport
