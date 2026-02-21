@@ -42,7 +42,7 @@ function updateState(direction) {
       // Page is flipped to the LEFT
       page.classList.add('flipped');
       // Immediate high z-index for flipped pages to stay on top
-      page.style.zIndex = 100 + index;
+      page.style.zIndex = 20 + index;
 
       page.style.transform = `rotateY(-180deg)`;
     } else {
@@ -52,7 +52,7 @@ function updateState(direction) {
       // This prevents the "underneath" images from popping in too early
       setTimeout(() => {
         page.style.zIndex = pages.length - index;
-      }, 200);
+      }, 100);
 
       page.style.transform = `rotateY(0deg)`;
     }
