@@ -47,11 +47,11 @@ function updateState(direction) {
   }
 
   pages.forEach((page, index) => {
-    if ((index <= currentIdx) || (direction === 'prev')) {
-      page.style.visibility = 'visible';
-    } else {
-      page.style.visibility = 'hidden';
-    }
+    // if ((index <= currentIdx) || (direction === 'prev')) {
+    //   page.style.visibility = 'visible';
+    // } else {
+    //   page.style.visibility = 'hidden';
+    // }
 
     if (index < currentIdx) {
       // Page is flipped to the LEFT
