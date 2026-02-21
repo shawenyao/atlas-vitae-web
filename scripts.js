@@ -3,6 +3,21 @@ function isWeChat() {
   return ua.indexOf('micromessenger') !== -1;
 }
 
+function detectBrowser() {
+    const userAgentString = navigator.userAgent;
+
+    let isChrome = !!window.chrome;
+    let isSafari = userAgentString.indexOf("Safari") > -1 && userAgentString.indexOf("Chrome") === -1;
+    
+    if (isChrome) {
+        return "Chrome";
+    } else if (isSafari) {
+        return "Safari";
+    } else {
+        return "Other";
+    }
+}
+
 
 if (isWeChat()) {
   document.getElementById('splash').innerHTML = `
@@ -42,7 +57,7 @@ function updateState(direction) {
       // Page is flipped to the LEFT
       page.classList.add('flipped');
       // Immediate high z-index for flipped pages to stay on top
-      page.style.zIndex = pages.length - 1 + index;
+      page.style.zIndex = detectBrowser() == "Safari"? 10 + index : pages.length - 1 + index;
 
       page.style.transform = `rotateY(-180deg)`;
     } else {
