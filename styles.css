@@ -386,6 +386,7 @@ footer a {
     pointer-events: none;
     backface-visibility: hidden;
     background-color: white;
+    -webkit-transform:translate3d(0,0,0); 
 }
 
 .front, .back {
@@ -395,6 +396,7 @@ footer a {
     background: #aaa;
     border: 1.2px solid #aaa;
     overflow: hidden;
+    -webkit-transform:translate3d(0,0,0); 
 }
 
 .front img{
