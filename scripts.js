@@ -47,20 +47,19 @@ function updateState(direction) {
   }
 
   pages.forEach((page, index) => {
-    // if ((index <= currentIdx) || (direction === 'prev')) {
-    //   page.style.visibility = 'visible';
-    // } else {
-    //   page.style.visibility = 'hidden';
-    // }
+    if ((index <= currentIdx) || (direction === 'prev')) {
+      page.style.visibility = 'visible';
+    } else {
+      page.style.visibility = 'hidden';
+    }
 
     if (index < currentIdx) {
       // Page is flipped to the LEFT
       page.classList.add('flipped');
       // Immediate high z-index for flipped pages to stay on top
       page.style.zIndex = detectBrowser() == "Safari"? 10 + index : pages.length + index;
-      // page.style.zIndex = pages.length + index;
 
-      page.style.transform = `rotateY(-180deg) translateX(0px)`;
+      page.style.transform = `rotateY(-180deg)`;
     } else {
       // Page is unflipped on the RIGHT
       page.classList.remove('flipped');
@@ -70,8 +69,7 @@ function updateState(direction) {
         page.style.zIndex = pages.length - index;
       }, 100);
 
-      const offset = (index - currentIdx) * 2;
-      page.style.transform = `rotateY(0deg) translateX(${offset}px)`;
+      page.style.transform = `rotateY(0deg)`;
     }
 
   });
