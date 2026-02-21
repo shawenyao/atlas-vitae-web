@@ -47,6 +47,7 @@ function updateState(direction) {
   }
 
   pages.forEach((page, index) => {
+    // hack to prevent "underneath" images from popping in too early during flipping
     if ((index <= currentIdx) || (direction === 'prev')) {
       page.style.visibility = 'visible';
     } else {
