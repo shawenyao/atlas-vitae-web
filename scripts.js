@@ -131,7 +131,7 @@ const observer_book = new IntersectionObserver((entries) => {
       observer_book.unobserve(entry.target);
     }
   });
-}, { threshold: 1.0 });
+}, { threshold: 0.9 });
 
 observer_book.observe(viewport);
 
