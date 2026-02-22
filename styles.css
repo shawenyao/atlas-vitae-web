@@ -366,7 +366,14 @@ footer a {
     --flip-speed: 1.5s;
 }
 
-.viewport { perspective: 1800px; display: flex; justify-content: center; width: 100%; transform-style: preserve-3d; }
+.viewport {
+    perspective: 1800px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transform-style: preserve-3d;
+    touch-action: pan-y;
+}
 
 .book {
     position: relative;
