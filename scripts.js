@@ -141,10 +141,7 @@ const observer_overlay = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('is-visible');
-      // Stop observing if you only want it to fade in once
-      // observer.unobserve(entry.target); 
     } else {
-      // Optional: Remove class to fade back out when scrolling away
       entry.target.classList.remove('is-visible');
     }
   });
