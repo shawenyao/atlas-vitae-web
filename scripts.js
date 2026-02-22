@@ -86,26 +86,31 @@ updateState();
 let startX = 0;
 let startY = 0;
 const thresholdX = 30; // Reduced threshold for more sensitivity
-const thresholdY = 5; // Reduced threshold for more sensitivity
+const thresholdY = 1; // Reduced threshold for more sensitivity
 
 function handleStart(e, x, y) {
-  // Prevent mouse emulation on touch devices to stop "double clicks"
-  if (e.type === 'touchstart') e.preventDefault();
+
   startX = x;
   startY = y;
 }
 
+let freezed = false;
 function handleEnd(e, endX, endY) {
+  if(freezed) return;
+
+  // prevent double firing of touch and mouse events
+  freezed = true;
+  setTimeout(() => {
+    freezed = false;
+  }, 100);
+
   const diffX = endX - startX;
   const diffY = endY - startY;
-  if ((Math.abs(diffX) > thresholdX) && (Math.abs(diffX) > Math.abs(diffY))) {
+  if ((Math.abs(diffX) > thresholdX)) {
+    // swipe logic
     diffX > 0 ? goPrev() : goNext();
-  //} else if (Math.abs(diffY) > thresholdY){
-    //diffY > 0 ? goPrev() : goNext();
   } else if (Math.abs(diffY) < thresholdY){
-    // CLICK LOGIC:
-    // Left half of screen -> Previous
-    // Right half of screen -> Next
+    // click logic
     endX < window.innerWidth / 2 ? goPrev() : goNext();
   }
 }
