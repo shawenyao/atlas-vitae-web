@@ -140,9 +140,13 @@ observer_book.observe(viewport);
 const observer_overlay = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
+      setTimeout(() => {
+        entry.target.classList.add('is-visible');
+      }, Math.floor(Math.random() * 500));
     } else {
-      entry.target.classList.remove('is-visible');
+      setTimeout(() => {
+        entry.target.classList.remove('is-visible');
+      }, Math.floor(Math.random() * 500));
     }
   });
 }, { threshold: 0.75 });
