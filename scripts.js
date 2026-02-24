@@ -133,7 +133,7 @@ const observer_book = new IntersectionObserver((entries) => {
       // }
 
       goNext();
-      observer_book.unobserve(entry.target);
+      // observer_book.unobserve(entry.target);
     }
   });
 }, { threshold: 1.0 });
