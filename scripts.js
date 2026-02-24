@@ -94,7 +94,7 @@ function handleStart(e, x, y) {
 }
 
 let freezed = false;
-function handleEnd(e, endX) {
+function handleEnd(e, endX, endY) {
   if (freezed) return;
 
   // prevent double firing of touch and mouse events
