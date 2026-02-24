@@ -84,10 +84,13 @@ updateState();
 
 
 let startX = 0;
+let startY = 0;
 const threshold_swipe = 30;
+const threshold_click = 5;
 
-function handleStart(e, x) {
+function handleStart(e, x, y) {
   startX = x;
+  startY = y;
 }
 
 let freezed = false;
@@ -101,10 +104,11 @@ function handleEnd(e, endX) {
   }, 100);
 
   const diffX = endX - startX;
-  if ((Math.abs(diffX) > threshold_swipe)) {
+  const diffY = endY - startY;
+  if (Math.abs(diffX) > threshold_swipe) {
     // swipe logic
     diffX > 0 ? goPrev() : goNext();
-  } else {
+  } else if ((Math.abs(diffX) < threshold_click) && (Math.abs(diffY) < threshold_click)) {
     // click logic
     endX < window.innerWidth / 2 ? goPrev() : goNext();
   }
@@ -112,10 +116,10 @@ function handleEnd(e, endX) {
 
 const viewport = document.querySelector('.viewport');
 // Event Listeners
-viewport.addEventListener('touchstart', e => handleStart(e, e.touches[0].clientX));
-viewport.addEventListener('touchend', e => handleEnd(e, e.changedTouches[0].clientX));
-viewport.addEventListener('mousedown', e => handleStart(e, e.clientX));
-viewport.addEventListener('mouseup', e => handleEnd(e, e.clientX));
+viewport.addEventListener('touchstart', e => handleStart(e, e.touches[0].clientX, e.touches[0].clientY));
+viewport.addEventListener('touchend', e => handleEnd(e, e.changedTouches[0].clientX, e.changedTouches[0].clientY));
+viewport.addEventListener('mousedown', e => handleStart(e, e.clientX, e.clientY));
+viewport.addEventListener('mouseup', e => handleEnd(e, e.clientX, e.clientY));
 
 // book page auto flip
 const observer_book = new IntersectionObserver((entries) => {
