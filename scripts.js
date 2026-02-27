@@ -136,7 +136,7 @@ const observer_book = new IntersectionObserver((entries) => {
       setTimeout(() => {
         goNext();
       }, 300);
-      // observer_book.unobserve(entry.target);
+      observer_book.unobserve(entry.target);
     }
   });
 }, { threshold: 1.0 });
