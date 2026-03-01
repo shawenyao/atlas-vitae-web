@@ -20,16 +20,18 @@ function detectBrowser() {
 
 
 if (isWeChat()) {
-  document.getElementById('splash').innerHTML = `
-<div class="slideshow">
-  <div class="slides">
-    <div class="slide"><img src="images/h1.jpg"></div>
-    <div class="slide"><img src="images/h2.jpg"></div>
-    <div class="slide"><img src="images/h3.jpg"></div>
-    <div class="slide"><img src="images/h4.jpg"></div>
-  </div>
-</div>
-  `;
+//   document.getElementById('splash').innerHTML = `
+// <div class="slideshow">
+//   <div class="slides">
+//     <div class="slide"><img src="images/h1.jpg"></div>
+//     <div class="slide"><img src="images/h2.jpg"></div>
+//     <div class="slide"><img src="images/h3.jpg"></div>
+//     <div class="slide"><img src="images/h4.jpg"></div>
+//   </div>
+// </div>
+//   `;
+
+  document.getElementById("hero-video").play();
 }
 
 const book = document.getElementById('book');
