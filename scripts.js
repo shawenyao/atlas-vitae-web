@@ -35,26 +35,6 @@ if (isWeChat()) {
   }
 }
 
-  // check if WeixinJSBridge exist and is ready
-  // WeixinJSBridge is a global object in wechat browser
-  // the reason we use it here is because we need to
-  // trigger video play action in WeixinJSBridge invoke callback
-  // otherwise the video will not play
-  if ((window as any).WeixinJSBridge) {
-    doPlay();
-  } else {
-    // add event listener for WeixinJSBridgeReady 
-    // in case it's not ready yet
-    document.addEventListener(
-      "WeixinJSBridgeReady",
-      function () {
-        doPlay();
-      },
-      false
-    );
-  } 
-}
-
 const book = document.getElementById('book');
 const pages = document.querySelectorAll('.page');
 let currentIdx = 0;
