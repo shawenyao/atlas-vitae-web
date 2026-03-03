@@ -374,6 +374,8 @@ footer a {
     height: var(--book-height);
     transform-style: preserve-3d;
     transition: transform var(--flip-speed) ease-in-out;
+    -webkit-user-select: none;
+    user-select: none; 
 }
 
 .page {
